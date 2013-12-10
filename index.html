@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<title> RaspPi - Arduino</title>
+<meta charset="utf-8">
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var socket = io.connect("/",{});
+
+socket.on('message', function(data) {
+     console.log(data);
+     writeData(data);
+});
+
+function writeData(msg) {
+  var msgArea = document.getElementById("msgArea");
+  if ( typeof msg == "object") {
+    msgArea.innerHTML = msg.arduinodata;
+  } else {
+    msgArea.innerHTML = msg;
+  }
+}
+</script>     
+</head>
+<body>
+    <div id="msgArea">
+    </div>
+</body>
+</html>
