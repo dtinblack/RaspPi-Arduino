@@ -20,16 +20,21 @@ sp.on("error", function(err) {
 
 
 var readData="";
+var count = 0;
 
 sp.on("data", function(data) {
 
-  console.log("serial port: " + data.toString());
-
-  readData += data.toString();
-
-  io.sockets.emit("message", readData);
-
-  readData="";
+  if(data[data.length-1] == 0x0a) { // Check for NL = end of string
+     count += 1;
+     readData += data.toString();
+     readData += " [ " + count.toString() + " ]";
+     console.log("end of data");
+     console.log(readData);
+     io.sockets.emit("message", readData);
+     readData="";
+  } else {
+     readData += data.toString();
+  }
 
 });
 
