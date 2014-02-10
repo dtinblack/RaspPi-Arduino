@@ -49,7 +49,7 @@ The software is development and run via the Terminal.
     
 ### Install Arduino for Terminal Commands - see the [Linux Circle step-by-step guide ] ( http://www.linuxcircle.com/2013/05/15/programming-and-uploading-arduino-sketch-without-ide/ )
  
-# Running Arduino-Raspberry Pi
+## Running Arduino-Raspberry Pi
 
 ### Transfer software to the Arduino:
 
